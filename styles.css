@@ -1,0 +1,105 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  margin: 0;
+  padding: 20px;
+}
+
+h1, h2 {
+  color: #38bdf8;
+}
+
+.nav {
+  margin: 15px 0;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  padding: 8px 12px;
+  margin: 5px 5px 5px 0;
+  border: none;
+  border-radius: 6px;
+  background: #38bdf8;
+  color: black;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0ea5e9;
+}
+
+#app {
+  margin-top: 20px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.username {
+  font-weight: bold;
+  cursor: pointer;
+  color: #22c55e;
+}
+
+.comment {
+  font-size: 0.9em;
+  margin-left: 10px;
+  color: #cbd5f5;
+}
+
+.username:hover {
+  text-decoration: underline;
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.card p {
+  word-break: break-word;
+}
+
+/* 📱 Responsive */
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  textarea {
+    min-height: 80px;
+  }
+}

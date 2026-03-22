@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <title>socialAsync</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <h1>socialAsync</h1>
+
+    <div id="auth">
+      <input id="username" placeholder="username" />
+      <input id="password" placeholder="password" />
+      <button onclick="login()">Login</button>
+    </div>
+
+    <div class="nav">
+      <button onclick="showFeed()">Feed</button>
+      <button onclick="showSearch()">Buscar</button>
+      <button onclick="showFriends()">Amigos</button>
+    </div>
+
+    <div id="app"></div>
+
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
