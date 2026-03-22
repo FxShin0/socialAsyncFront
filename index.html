@@ -9,15 +9,19 @@
     <h1>socialAsync</h1>
 
     <div id="auth">
+      <input id="nombre" placeholder="nombre" />
       <input id="username" placeholder="username" />
-      <input id="password" placeholder="password" />
+      <input id="password" placeholder="password" type="password" />
+
       <button onclick="login()">Login</button>
+      <button onclick="register()">Register</button>
     </div>
 
-    <div class="nav">
+    <div class="nav" style="display: none">
       <button onclick="showFeed()">Feed</button>
       <button onclick="showSearch()">Buscar</button>
       <button onclick="showFriends()">Amigos</button>
+      <button onclick="logout()">Logout</button>
     </div>
 
     <div id="app"></div>

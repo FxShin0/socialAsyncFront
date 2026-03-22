@@ -2,20 +2,53 @@ const appDiv = document.getElementById("app");
 
 // ---------------- AUTH ----------------
 
+window.register = async function () {
+  const nombre = document.getElementById("nombre").value;
+  const username = document.getElementById("username").value;
+  const contraseña = document.getElementById("password").value;
+
+  const res = await fetch(API + "/register", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ nombre, username, contraseña }),
+  });
+
+  const data = await res.json();
+
+  if (res.ok) {
+    alert("Usuario creado correctamente. Ahora podés loguearte.");
+
+    // limpiar campos
+    document.getElementById("nombre").value = "";
+    document.getElementById("username").value = "";
+    document.getElementById("password").value = "";
+  } else {
+    alert(data.msg || "Error al registrarse");
+  }
+};
+
 window.login = async function () {
   const username = document.getElementById("username").value;
   const contraseña = document.getElementById("password").value;
 
-  const res = await fetch("https://socialasync.onrender.com/login", {
+  const res = await fetch(API + "/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, contraseña }),
   });
 
   const data = await res.json();
-  localStorage.setItem("token", data.token);
 
-  showFeed(); // 👈 ESTO ES LO QUE FALTABA
+  if (data.token) {
+    localStorage.setItem("token", data.token);
+
+    document.getElementById("auth").style.display = "none";
+    document.querySelector(".nav").style.display = "flex";
+
+    showFeed();
+  } else {
+    alert(data.msg || "Credenciales inválidas");
+  }
 };
 
 // ---------------- FEED ----------------
@@ -219,6 +252,17 @@ window.deletePost = async function (postId) {
   });
 
   showFeed();
+};
+
+window.logout = function () {
+  localStorage.removeItem("token");
+
+  // mostrar login de nuevo
+  document.getElementById("auth").style.display = "block";
+  document.querySelector(".nav").style.display = "none";
+  document.getElementById("app").innerHTML = "";
+
+  alert("Sesión cerrada");
 };
 
 // ---------------- UTILS ----------------

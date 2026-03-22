@@ -6,7 +6,8 @@ body {
   padding: 20px;
 }
 
-h1, h2 {
+h1,
+h2 {
   color: #38bdf8;
 }
 
@@ -14,7 +15,13 @@ h1, h2 {
   margin: 15px 0;
 }
 
-input, textarea {
+#auth {
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+input,
+textarea {
   width: 100%;
   padding: 8px;
   margin: 5px 0;
